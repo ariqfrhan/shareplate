@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "948615999236",
+    "project_id": "shareplate-7c907",
+    "storage_bucket": "shareplate-7c907.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:948615999236:android:a73ef590aab955f3d3aa51",
+        "android_client_info": {
+          "package_name": "com.bismillahmsib.shareplate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5viZRDj_Jf9LzzXmlQby-Nl-SJ77tc7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
