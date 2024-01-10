@@ -8,7 +8,7 @@ class SplashScreen extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: Text('Shareplate'),
+          child: Image.asset("assets/images/logo.png"),
         ),
       ),
     );
