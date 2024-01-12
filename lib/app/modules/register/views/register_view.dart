@@ -33,8 +33,9 @@ class RegisterView extends GetView<RegisterController> {
               height: 30,
             ),
             TextField(
+              controller: controller.fullnameC,
               decoration: InputDecoration(
-                labelText: 'Fullname',
+                labelText: 'Full Name',
                 fillColor: Colors.white,
                 filled: true,
               ),
@@ -43,6 +44,7 @@ class RegisterView extends GetView<RegisterController> {
               height: 15,
             ),
             IntlPhoneField(
+              controller: controller.phoneC,
               decoration: InputDecoration(
                 labelText: 'Phone',
                 fillColor: Colors.white,
@@ -59,6 +61,7 @@ class RegisterView extends GetView<RegisterController> {
               height: 15,
             ),
             TextField(
+              controller: controller.emailC,
               decoration: InputDecoration(
                 labelText: 'Email',
                 fillColor: Colors.white,
@@ -69,21 +72,26 @@ class RegisterView extends GetView<RegisterController> {
               height: 15,
             ),
             TextField(
+              controller: controller.passwordC,
               decoration: InputDecoration(
                 labelText: 'Password',
                 fillColor: Colors.white,
                 filled: true,
               ),
+              obscureText: true,
             ),
             SizedBox(
               height: 15,
             ),
             TextField(
+              controller : controller.repasswordC,
               decoration: InputDecoration(
                 labelText: 'Password Confirmation',
                 fillColor: Colors.white,
                 filled: true,
               ),
+              obscureText: true,
+
             ),
             SizedBox(
               height: 25,

@@ -37,31 +37,25 @@ class MyApp extends StatelessWidget {
           return GetMaterialApp(
             theme: ThemeData(
               colorScheme: ColorScheme.fromSeed(
-                seedColor: ShareplateColor.primary,
-                brightness: Brightness.light
-                ),
-              inputDecorationTheme :InputDecorationTheme(
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(
-                    color: Color(0xFFA7AEBE), width: 0.4
-                  )
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(
-                    color: ShareplateColor.primary, width: 0.4
-                  )
-                ),
-                contentPadding: EdgeInsets.symmetric(horizontal: 20)
-              ),
+                  seedColor: ShareplateColor.primary,
+                  brightness: Brightness.light),
+              inputDecorationTheme: InputDecorationTheme(
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide:
+                          BorderSide(color: Color(0xFFA7AEBE), width: 0.4)),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide(
+                          color: ShareplateColor.primary, width: 0.4)),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 20)),
               textTheme:
                   Theme.of(context).textTheme.apply(fontFamily: 'Montserrat'),
               primaryColor: ShareplateColor.primary,
             ),
             debugShowCheckedModeBanner: false,
             title: 'Shareplate',
-            initialRoute: authC.isLogin.isTrue ? Routes.HOME : Routes.REGISTER,
+            initialRoute: authC.isLogin.isTrue ? Routes.HOME : Routes.INTRODUCTION,
             getPages: AppPages.routes,
           );
 
@@ -70,24 +64,36 @@ class MyApp extends StatelessWidget {
           //       future: Future.delayed(Duration(seconds: 3)),
           //       builder: (context, snapshot) {
           //         if (snapshot.connectionState == ConnectionState.done) {
-          //           return Obx(
-          //             () => GetMaterialApp(
-          //               theme: ThemeData(
-          //                 textTheme: Theme.of(context).textTheme.apply(
-          //                   fontFamily: 'Montserrat'
+          //           return Obx(() => GetMaterialApp(
+          //                 theme: ThemeData(
+          //                   colorScheme: ColorScheme.fromSeed(
+          //                       seedColor: ShareplateColor.primary,
+          //                       brightness: Brightness.light),
+          //                   inputDecorationTheme: InputDecorationTheme(
+          //                       enabledBorder: OutlineInputBorder(
+          //                           borderRadius: BorderRadius.circular(8),
+          //                           borderSide: BorderSide(
+          //                               color: Color(0xFFA7AEBE), width: 0.4)),
+          //                       focusedBorder: OutlineInputBorder(
+          //                           borderRadius: BorderRadius.circular(8),
+          //                           borderSide: BorderSide(
+          //                               color: ShareplateColor.primary,
+          //                               width: 0.4)),
+          //                       contentPadding:
+          //                           EdgeInsets.symmetric(horizontal: 20)),
+          //                   textTheme: Theme.of(context)
+          //                       .textTheme
+          //                       .apply(fontFamily: 'Montserrat'),
+          //                   primaryColor: ShareplateColor.primary,
           //                 ),
-          //                 primaryColor: ShareplateColor.primary,
-          //               ),
-          //               debugShowCheckedModeBanner: false,
-          //               title: 'Shareplate',
-          //               initialRoute:
-          //                 authC.isLogin.isTrue
-          //                   ? Routes.HOME
-          //                   : Routes.REGISTER
-          //               ,
-          //               getPages: AppPages.routes,
-          //             ),
-          //           );
+          //                 debugShowCheckedModeBanner: false,
+          //                 title: 'Shareplate',
+          //                 initialRoute: authC.isLogin.isTrue
+          //                     ? Routes.HOME
+          //                     : Routes.REGISTER,
+          //                 getPages: AppPages.routes,
+          //               )
+          //               );
           //         }
           //         return SplashScreen();
           //       });

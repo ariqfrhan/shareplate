@@ -1,23 +1,31 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterController extends GetxController {
-  //TODO: Implement RegisterController
+  late TextEditingController fullnameC;
+  late TextEditingController phoneC;
+  late TextEditingController emailC;
+  late TextEditingController passwordC;
+  late TextEditingController repasswordC;
 
-  final count = 0.obs;
   @override
   void onInit() {
+    fullnameC = TextEditingController();
+    phoneC = TextEditingController();
+    emailC = TextEditingController();
+    passwordC = TextEditingController();
+    repasswordC = TextEditingController();
     super.onInit();
   }
 
   @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
   void onClose() {
+    // fullnameC.dispose();
+    // emailC.dispose();
+    // phoneC.dispose();
+    // emailC.dispose();
+    // passwordC.dispose();
+    // repasswordC.dispose();
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

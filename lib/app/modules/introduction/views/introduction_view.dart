@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shareplate/app/routes/app_pages.dart';
 import 'package:shareplate/app/utils/shareplate_colors.dart';
 
@@ -12,40 +11,72 @@ class IntroductionView extends GetView<IntroductionController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IntroductionScreen(
-        pages: [
-          PageViewModel(
-            title: "Berinteraksi dengan Mudah",
-            body:
-                "Berinteraksi dengan sekitarmu hanya dengan 1 klik",
-            image: Center(
-              child: Image.asset("assets/image/logo.png"),
+        appBar: AppBar(),
+        body: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset("assets/images/logoNoTitle.png"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Let's create a community committed to sustainability",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "Discover surplus meals, share, and make a difference",
+                    style:
+                        TextStyle(fontWeight: FontWeight.w300, color: Colors.grey),
+                  ),
+                  SizedBox(
+                    height: 60,
+                  ),
+                  ElevatedButton(
+                    onPressed: ()=>Get.offNamed(Routes.REGISTER),
+                    child: Text('Get Started Now'),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: ShareplateColor.primary,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12))),
+                  ),
+                ],
+              ),
             ),
-            decoration: const PageDecoration(
-              titleTextStyle: TextStyle(color: Colors.orange),
-              bodyTextStyle:
-                  TextStyle(fontWeight: FontWeight.w700, fontSize: 20.0),
-            ),
-          )
-        ],
-        showSkipButton: true,
-        skip: const Text('Skip', style: TextStyle(color: ShareplateColor.primary),),
-        next: const Text("Next", style: TextStyle(color: ShareplateColor.primary),),
-        done: const Text("Register", style: TextStyle(fontWeight: FontWeight.w700)),
-        onDone: ()=> Get.offAllNamed(Routes.REGISTER),
-        onSkip: () {
-          // On Skip button pressed
-        },
-        dotsDecorator: DotsDecorator(
-          size: const Size.square(10.0),
-          activeSize: const Size(20.0, 10.0),
-          activeColor: Theme.of(context).colorScheme.secondary,
-          color: Colors.black26,
-          spacing: const EdgeInsets.symmetric(horizontal: 3.0),
-          activeShape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
-        ),
-      )
-    );
+            Expanded(
+              child: Stack(
+                alignment: Alignment.bottomRight,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.white,
+                          ShareplateColor.primary
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        stops: [
+                          0.0,
+                          
+                          1
+                        ],
+                      )
+                    ),
+                  ),
+                  Image.asset("assets/images/food.png", fit: BoxFit.fill,)
+                ],
+              ),
+            )
+          ],
+        ));
   }
 }
