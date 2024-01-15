@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/community/bindings/community_binding.dart';
 import '../modules/community/views/community_view.dart';
+import '../modules/foodDetails/bindings/food_details_binding.dart';
+import '../modules/foodDetails/views/food_details_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/introduction/bindings/introduction_binding.dart';
@@ -62,6 +64,11 @@ class AppPages {
       name: _Paths.COMMUNITY,
       page: () => const CommunityView(),
       binding: CommunityBinding(),
+    ),
+    GetPage(
+      name: _Paths.FOOD_DETAILS,
+      page: () => const FoodDetailsView(),
+      binding: FoodDetailsBinding(),
     ),
   ];
 }
