@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
             ),
             debugShowCheckedModeBanner: false,
             title: 'Shareplate',
-            initialRoute: authC.isLogin.isTrue ? Routes.HOME : Routes.HOME,
+            initialRoute: authC.isLogin.isTrue ? Routes.HOME : Routes.MAIN_WRAPPER,
             getPages: AppPages.routes,
           );
 

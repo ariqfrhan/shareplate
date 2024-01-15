@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:shareplate/app/utils/shareplate_colors.dart';
+import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -16,18 +17,6 @@ class HomeView extends GetView<HomeController> {
                 color: ShareplateColor.primary, fontFamily: 'Amaranth'),
           ),
           centerTitle: true,
-        ),
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            children: [
-              _bottomAppBarItem(
-                context,
-                icon: Icon(Icons.home),
-                page: 0,
-                label: Text('Home')
-              ),
-            ],
-          ),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -162,12 +151,5 @@ class HomeView extends GetView<HomeController> {
             ],
           ),
         ));
-  }
-
-  Widget _bottomAppBarItem(BuildContext context,
-      {required icon, required page, required label}) {
-    return Column(
-      children: [Icon(icon), Text(label)],
-    );
   }
 }
