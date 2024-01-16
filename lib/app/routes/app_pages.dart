@@ -4,6 +4,10 @@ import '../modules/bookingorder/bindings/bookingorder_binding.dart';
 import '../modules/bookingorder/views/bookingorder_view.dart';
 import '../modules/community/bindings/community_binding.dart';
 import '../modules/community/views/community_view.dart';
+import '../modules/community_contribution/bindings/community_contribution_binding.dart';
+import '../modules/community_contribution/views/community_contribution_view.dart';
+import '../modules/community_post/bindings/community_post_binding.dart';
+import '../modules/community_post/views/community_post_view.dart';
 import '../modules/foodDetails/bindings/food_details_binding.dart';
 import '../modules/foodDetails/views/food_details_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -76,6 +80,16 @@ class AppPages {
       name: _Paths.BOOKINGORDER,
       page: () => const BookingorderView(),
       binding: BookingorderBinding(),
+    ),
+    GetPage(
+      name: _Paths.COMMUNITY_POST,
+      page: () => const CommunityPostView(),
+      binding: CommunityPostBinding(),
+    ),
+    GetPage(
+      name: _Paths.COMMUNITY_CONTRIBUTION,
+      page: () => const CommunityContributionView(),
+      binding: CommunityContributionBinding(),
     ),
   ];
 }
