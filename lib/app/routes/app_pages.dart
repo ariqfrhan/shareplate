@@ -67,7 +67,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FOOD_DETAILS,
-      page: () => const FoodDetailsView(),
+      page: () => FoodDetailsView(),
       binding: FoodDetailsBinding(),
     ),
   ];
