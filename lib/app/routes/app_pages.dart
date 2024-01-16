@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/bookingorder/bindings/bookingorder_binding.dart';
+import '../modules/bookingorder/views/bookingorder_view.dart';
 import '../modules/community/bindings/community_binding.dart';
 import '../modules/community/views/community_view.dart';
 import '../modules/foodDetails/bindings/food_details_binding.dart';
@@ -67,8 +69,13 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FOOD_DETAILS,
-      page: () => const FoodDetailsView(),
+      page: () => FoodDetailsView(),
       binding: FoodDetailsBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOOKINGORDER,
+      page: () => const BookingorderView(),
+      binding: BookingorderBinding(),
     ),
   ];
 }
