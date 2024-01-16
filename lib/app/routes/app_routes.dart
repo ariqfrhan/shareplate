@@ -13,6 +13,8 @@ abstract class Routes {
   static const COMMUNITY = _Paths.COMMUNITY;
   static const FOOD_DETAILS = _Paths.FOOD_DETAILS;
   static const BOOKINGORDER = _Paths.BOOKINGORDER;
+  static const COMMUNITY_POST = _Paths.COMMUNITY_POST;
+  static const COMMUNITY_CONTRIBUTION = _Paths.COMMUNITY_CONTRIBUTION;
 }
 
 abstract class _Paths {
@@ -27,4 +29,6 @@ abstract class _Paths {
   static const COMMUNITY = '/community';
   static const FOOD_DETAILS = '/food-details';
   static const BOOKINGORDER = '/bookingorder';
+  static const COMMUNITY_POST = '/community-post';
+  static const COMMUNITY_CONTRIBUTION = '/community-contribution';
 }
