@@ -26,12 +26,32 @@ class FoodDetailsView extends GetView<FoodDetailsController> {
                 fit: BoxFit.cover,
               ),
             ),
-            leading: GestureDetector(
+            leading: ZoomTapAnimation(
               onTap: () => Get.back(),
-              child: Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 20,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  color: Colors.white,
+                ),
+                child: Icon(
+                  Icons.arrow_back_ios,
+                ),
               ),
+            ),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      color: Colors.white,
+                    ),
+                    child: Icon(Icons.notifications))
+              ],
             ),
             bottom: PreferredSize(
                 preferredSize: Size.fromHeight(20),
@@ -172,6 +192,8 @@ class FoodDetailsView extends GetView<FoodDetailsController> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
+        elevation: 3,
+        surfaceTintColor: Colors.white,
         child: ElevatedButton(
           onPressed: () {
             showModalBottomSheet(
@@ -200,7 +222,7 @@ class FoodDetailsView extends GetView<FoodDetailsController> {
                           padding: EdgeInsets.symmetric(horizontal: 24),
                           width: double.maxFinite,
                           child: ElevatedButton(
-                            onPressed: ()=>Get.toNamed(Routes.BOOKINGORDER),
+                            onPressed: () => Get.toNamed(Routes.BOOKINGORDER),
                             child: Text('Order',
                                 style: TextStyle(
                                     fontSize: 18, fontWeight: FontWeight.w600)),
@@ -248,7 +270,7 @@ class _CartCountState extends State<CartCount> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ZoomTapAnimation(
-          onTap: (){
+          onTap: () {
             setState(() {
               counter--;
             });
@@ -275,11 +297,11 @@ class _CartCountState extends State<CartCount> {
           width: 25,
         ),
         ZoomTapAnimation(
-          onTap: (){
-            setState(() {
-              counter++;
-            });
-          },
+            onTap: () {
+              setState(() {
+                counter++;
+              });
+            },
             child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
