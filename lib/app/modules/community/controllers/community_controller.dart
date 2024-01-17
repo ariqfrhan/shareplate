@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class CommunityController extends GetxController {
   late PageController pageController;
 
-  RxInt currentPage = 1.obs;
+  RxInt currentPage = 0.obs;
 
   void goToTab(int page){
     currentPage.value = page;
@@ -18,7 +18,7 @@ class CommunityController extends GetxController {
 
   @override
   void onInit() {
-    pageController = PageController(initialPage: 1);
+    pageController = PageController(initialPage: 0);
     super.onInit();
   }
 
