@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:shareplate/app/controllers/auth_controller.dart';
 import 'package:shareplate/app/routes/app_pages.dart';
 import 'package:shareplate/app/utils/shareplate_colors.dart';
 
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
-  const RegisterView({Key? key}) : super(key: key);
+  RegisterView({Key? key}) : super(key: key);
+
+  final authC = Get.find<AuthController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,7 +147,7 @@ class RegisterView extends GetView<RegisterController> {
               height: 5,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => authC.login(),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

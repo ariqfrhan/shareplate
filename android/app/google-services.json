@@ -12,7 +12,20 @@
           "package_name": "com.bismillahmsib.shareplate"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "948615999236-slgj8hnmb2sva4nrl7rkg90jj15ctaik.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bismillahmsib.shareplate",
+            "certificate_hash": "d569eae64e53b9170c2425ce9b13b805be1c978c"
+          }
+        },
+        {
+          "client_id": "948615999236-uadg22scq8h1th2fkh84r7g4k319fr65.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyD5viZRDj_Jf9LzzXmlQby-Nl-SJ77tc7E"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "948615999236-uadg22scq8h1th2fkh84r7g4k319fr65.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "948615999236-5c5v0b7pd9a8gi4bensseps67abueuev.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bismillahmsib.shareplate"
+              }
+            }
+          ]
         }
       }
     }

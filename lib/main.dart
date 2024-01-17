@@ -34,70 +34,70 @@ class MyApp extends StatelessWidget {
             return ErrorScreen();
           }
 
-          return GetMaterialApp(
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(
-                  seedColor: ShareplateColor.primary,
-                  brightness: Brightness.light),
-              inputDecorationTheme: InputDecorationTheme(
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide:
-                          BorderSide(color: Color(0xFFA7AEBE), width: 0.4)),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(
-                          color: ShareplateColor.primary, width: 0.4)),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 20)),
-              textTheme:
-                  Theme.of(context).textTheme.apply(fontFamily: 'Montserrat'),
-              primaryColor: ShareplateColor.primary,
-            ),
-            debugShowCheckedModeBanner: false,
-            title: 'Shareplate',
-            initialRoute: authC.isLogin.isTrue ? Routes.HOME : Routes.MAIN_WRAPPER,
-            getPages: AppPages.routes,
-          );
+          // return GetMaterialApp(
+          //   theme: ThemeData(
+          //     colorScheme: ColorScheme.fromSeed(
+          //         seedColor: ShareplateColor.primary,
+          //         brightness: Brightness.light),
+          //     inputDecorationTheme: InputDecorationTheme(
+          //         enabledBorder: OutlineInputBorder(
+          //             borderRadius: BorderRadius.circular(8),
+          //             borderSide:
+          //                 BorderSide(color: Color(0xFFA7AEBE), width: 0.4)),
+          //         focusedBorder: OutlineInputBorder(
+          //             borderRadius: BorderRadius.circular(8),
+          //             borderSide: BorderSide(
+          //                 color: ShareplateColor.primary, width: 0.4)),
+          //         contentPadding: EdgeInsets.symmetric(horizontal: 20)),
+          //     textTheme:
+          //         Theme.of(context).textTheme.apply(fontFamily: 'Montserrat'),
+          //     primaryColor: ShareplateColor.primary,
+          //   ),
+          //   debugShowCheckedModeBanner: false,
+          //   title: 'Shareplate',
+          //   initialRoute: authC.isLogin.isTrue ? Routes.HOME : Routes.MAIN_WRAPPER,
+          //   getPages: AppPages.routes,
+          // );
 
-          // if (snapshot.connectionState == ConnectionState.done) {
-          //   return FutureBuilder(
-          //       future: Future.delayed(Duration(seconds: 3)),
-          //       builder: (context, snapshot) {
-          //         if (snapshot.connectionState == ConnectionState.done) {
-          //           return Obx(() => GetMaterialApp(
-          //                 theme: ThemeData(
-          //                   colorScheme: ColorScheme.fromSeed(
-          //                       seedColor: ShareplateColor.primary,
-          //                       brightness: Brightness.light),
-          //                   inputDecorationTheme: InputDecorationTheme(
-          //                       enabledBorder: OutlineInputBorder(
-          //                           borderRadius: BorderRadius.circular(8),
-          //                           borderSide: BorderSide(
-          //                               color: Color(0xFFA7AEBE), width: 0.4)),
-          //                       focusedBorder: OutlineInputBorder(
-          //                           borderRadius: BorderRadius.circular(8),
-          //                           borderSide: BorderSide(
-          //                               color: ShareplateColor.primary,
-          //                               width: 0.4)),
-          //                       contentPadding:
-          //                           EdgeInsets.symmetric(horizontal: 20)),
-          //                   textTheme: Theme.of(context)
-          //                       .textTheme
-          //                       .apply(fontFamily: 'Montserrat'),
-          //                   primaryColor: ShareplateColor.primary,
-          //                 ),
-          //                 debugShowCheckedModeBanner: false,
-          //                 title: 'Shareplate',
-          //                 initialRoute: authC.isLogin.isTrue
-          //                     ? Routes.HOME
-          //                     : Routes.INTRODUCTION,
-          //                 getPages: AppPages.routes,
-          //               )
-          //               );
-          //         }
-          //         return SplashScreen();
-          //       });
-          // }
+          if (snapshot.connectionState == ConnectionState.done) {
+            return FutureBuilder(
+                future: Future.delayed(Duration(seconds: 3)),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    return Obx(() => GetMaterialApp(
+                          theme: ThemeData(
+                            colorScheme: ColorScheme.fromSeed(
+                                seedColor: ShareplateColor.primary,
+                                brightness: Brightness.light),
+                            inputDecorationTheme: InputDecorationTheme(
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide: BorderSide(
+                                        color: Color(0xFFA7AEBE), width: 0.4)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide: BorderSide(
+                                        color: ShareplateColor.primary,
+                                        width: 0.4)),
+                                contentPadding:
+                                    EdgeInsets.symmetric(horizontal: 20)),
+                            textTheme: Theme.of(context)
+                                .textTheme
+                                .apply(fontFamily: 'Montserrat'),
+                            primaryColor: ShareplateColor.primary,
+                          ),
+                          debugShowCheckedModeBanner: false,
+                          title: 'Shareplate',
+                          initialRoute: authC.isLogin.isTrue
+                              ? Routes.MAIN_WRAPPER
+                              : Routes.INTRODUCTION,
+                          getPages: AppPages.routes,
+                        )
+                        );
+                  }
+                  return SplashScreen();
+                });
+          }
 
           return LoadingScreen();
         });

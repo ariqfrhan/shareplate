@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:shareplate/app/controllers/auth_controller.dart';
 import 'package:shareplate/app/routes/app_pages.dart';
 import 'package:shareplate/app/utils/shareplate_colors.dart';
 
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
-  const LoginView({Key? key}) : super(key: key);
+  LoginView({Key? key}) : super(key: key);
+  final authC = Get.find<AuthController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,7 +105,7 @@ class LoginView extends GetView<LoginController> {
                     height: 5,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => authC.login(),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -112,7 +115,7 @@ class LoginView extends GetView<LoginController> {
                           width: 36,
                         ),
                         Text(
-                          'Register with Google',
+                          'Login with Google',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         )
                       ],
