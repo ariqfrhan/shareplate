@@ -71,7 +71,7 @@ class LoginView extends GetView<LoginController> {
                     height: 10,
                   ),
                   ElevatedButton(
-                    onPressed: () => Get.offAllNamed(Routes.HOME),
+                    onPressed: () => Get.offAllNamed(Routes.MAIN_WRAPPER),
                     child: const Center(
                       child: Text(
                         'Sign In',

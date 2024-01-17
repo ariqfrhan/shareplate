@@ -90,7 +90,7 @@ class MyApp extends StatelessWidget {
           //                 title: 'Shareplate',
           //                 initialRoute: authC.isLogin.isTrue
           //                     ? Routes.HOME
-          //                     : Routes.REGISTER,
+          //                     : Routes.INTRODUCTION,
           //                 getPages: AppPages.routes,
           //               )
           //               );

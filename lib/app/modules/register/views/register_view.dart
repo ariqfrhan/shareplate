@@ -48,6 +48,7 @@ class RegisterView extends GetView<RegisterController> {
               decoration: InputDecoration(
                 labelText: 'Phone',
                 fillColor: Colors.white,
+                filled: true,
                 contentPadding: EdgeInsets.symmetric(horizontal: 20)
               ),
               initialCountryCode: 'ID',

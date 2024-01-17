@@ -68,7 +68,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.COMMUNITY,
-      page: () => const CommunityView(),
+      page: () => CommunityView(),
       binding: CommunityBinding(),
     ),
     GetPage(
