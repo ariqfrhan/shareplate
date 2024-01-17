@@ -10,14 +10,12 @@ class CommunityContributionView
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('CommunityContributionView'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'CommunityContributionView is working',
-          style: TextStyle(fontSize: 20),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          children: [
+            Text('My Contributions', style: TextStyle(fontWeight: FontWeight.bold),)
+          ],
         ),
       ),
     );
