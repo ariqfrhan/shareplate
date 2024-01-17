@@ -30,7 +30,7 @@ class CommunityView extends GetView<CommunityController> {
               height: 20,
             ),
             Obx(
-              ()=> Row(
+              () => Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   _upperAppbarItem(context, page: 0, label: 'Community'),
@@ -45,30 +45,39 @@ class CommunityView extends GetView<CommunityController> {
       body: PageView(
         controller: controller.pageController,
         onPageChanged: controller.animateToTab,
-        children: [
-          CommunityPostView(),
-          CommunityContributionView()
-        ],
-      )
+        children: [CommunityPostView(), CommunityContributionView()],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: ShareplateColor.primary,
+        onPressed: () {},
+        child: Icon(
+          Icons.add_rounded,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 
   Widget _upperAppbarItem(BuildContext context,
       {required page, required String label}) {
     return ZoomTapAnimation(
-      onTap: ()=> controller.goToTab(page),
+        onTap: () => controller.goToTab(page),
         child: Container(
-      child: Text(
-        label,
-        style: TextStyle(
-            fontFamily: 'Montserrat',
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: controller.currentPage.value == page ? ShareplateColor.primary : ShareplateColor.grey,
-            decoration: controller.currentPage.value == page ? TextDecoration.underline : TextDecoration.none,
-            decorationColor: ShareplateColor.primary,
+          child: Text(
+            label,
+            style: TextStyle(
+              fontFamily: 'Montserrat',
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: controller.currentPage.value == page
+                  ? ShareplateColor.primary
+                  : ShareplateColor.grey,
+              decoration: controller.currentPage.value == page
+                  ? TextDecoration.underline
+                  : TextDecoration.none,
+              decorationColor: ShareplateColor.primary,
             ),
-      ),
-    ));
+          ),
+        ));
   }
 }

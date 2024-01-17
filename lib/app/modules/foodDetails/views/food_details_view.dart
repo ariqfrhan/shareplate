@@ -45,7 +45,7 @@ class FoodDetailsView extends GetView<FoodDetailsController> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
                       color: Colors.white,
@@ -201,40 +201,114 @@ class FoodDetailsView extends GetView<FoodDetailsController> {
                 builder: (BuildContext context) {
                   return SizedBox(
                     width: double.maxFinite,
-                    height: 300,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Select Quantity',
-                          style: TextStyle(
-                              color: ShareplateColor.primary,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 20),
-                        ),
-                        Text('How many bags do you want?'),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 36),
-                          child: CartCount(),
-                        ),
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 24),
-                          width: double.maxFinite,
-                          child: ElevatedButton(
-                            onPressed: () => Get.toNamed(Routes.BOOKINGORDER),
-                            child: Text('Order',
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w600)),
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: ShareplateColor.primary,
-                                foregroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12)),
-                                padding: EdgeInsets.symmetric(vertical: 5)),
+                    height: 600,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Select Quantity',
+                            style: TextStyle(
+                                color: ShareplateColor.primary,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20),
                           ),
-                        ),
-                      ],
+                          Text('How many bags do you want?'),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 36),
+                            child: CartCount(),
+                          ),
+                          Column(
+                            children: [
+                              Divider(
+                                color: ShareplateColor.grey30,
+                                thickness: 2,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Order Total'),
+                                  Text('Rp 100.000')
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Service fee'),
+                                  Text('Rp 1.000')
+                                ],
+                              ),
+                              Divider(
+                                color: ShareplateColor.grey30,
+                                thickness: 2,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [Text('Total'), Text('Rp 1.000')],
+                              ),
+                              Divider(
+                                color: ShareplateColor.grey30,
+                                thickness: 2,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Payment Method'),
+                              ElevatedButton(
+                                onPressed: () =>
+                                    Get.toNamed(Routes.BOOKINGORDER),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text('QRIS',
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w600)),
+                                      Icon(Icons.arrow_forward_ios)
+                                    ],
+                                  ),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor:  Color(0xFFCEEAC8),
+                                    foregroundColor: ShareplateColor.primary,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(12)),
+                                    padding: EdgeInsets.symmetric(vertical: 5)),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10,),
+                          Container(
+                            width: double.maxFinite,
+                            child: ElevatedButton(
+                              onPressed: () => Get.toNamed(Routes.BOOKINGORDER),
+                              child: Text('Order',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600)),
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: ShareplateColor.primary,
+                                  foregroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12)),
+                                  padding: EdgeInsets.symmetric(vertical: 5)),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 });
