@@ -294,7 +294,7 @@ class FoodDetailsView extends GetView<FoodDetailsController> {
                           Container(
                             width: double.maxFinite,
                             child: ElevatedButton(
-                              onPressed: () => Get.toNamed(Routes.BOOKINGORDER),
+                              onPressed: () => Get.toNamed(Routes.PAYMENT_SUCCESS),
                               child: Text('Order',
                                   style: TextStyle(
                                       fontSize: 18,

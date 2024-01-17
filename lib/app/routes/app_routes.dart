@@ -15,6 +15,7 @@ abstract class Routes {
   static const BOOKINGORDER = _Paths.BOOKINGORDER;
   static const COMMUNITY_POST = _Paths.COMMUNITY_POST;
   static const COMMUNITY_CONTRIBUTION = _Paths.COMMUNITY_CONTRIBUTION;
+  static const PAYMENT_SUCCESS = _Paths.PAYMENT_SUCCESS;
 }
 
 abstract class _Paths {
@@ -31,4 +32,5 @@ abstract class _Paths {
   static const BOOKINGORDER = '/bookingorder';
   static const COMMUNITY_POST = '/community-post';
   static const COMMUNITY_CONTRIBUTION = '/community-contribution';
+  static const PAYMENT_SUCCESS = '/payment-success';
 }

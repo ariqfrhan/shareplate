@@ -20,6 +20,8 @@ import '../modules/mainWrapper/bindings/main_wrapper_binding.dart';
 import '../modules/mainWrapper/views/main_wrapper_view.dart';
 import '../modules/orders/bindings/orders_binding.dart';
 import '../modules/orders/views/orders_view.dart';
+import '../modules/payment_success/bindings/payment_success_binding.dart';
+import '../modules/payment_success/views/payment_success_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/register/bindings/register_binding.dart';
@@ -90,6 +92,11 @@ class AppPages {
       name: _Paths.COMMUNITY_CONTRIBUTION,
       page: () => const CommunityContributionView(),
       binding: CommunityContributionBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT_SUCCESS,
+      page: () => const PaymentSuccessView(),
+      binding: PaymentSuccessBinding(),
     ),
   ];
 }
