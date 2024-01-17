@@ -147,7 +147,7 @@ class RegisterView extends GetView<RegisterController> {
               height: 5,
             ),
             ElevatedButton(
-              onPressed: () => authC.login(),
+              onPressed: () => authC.registerGoogle(),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

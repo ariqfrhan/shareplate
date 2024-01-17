@@ -105,7 +105,7 @@ class LoginView extends GetView<LoginController> {
                     height: 5,
                   ),
                   ElevatedButton(
-                    onPressed: () => authC.login(),
+                    onPressed: () => authC.loginGoogle(),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
