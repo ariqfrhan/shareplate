@@ -12,6 +12,8 @@ class AuthController extends GetxController {
   GoogleSignInAccount? _currentUser;
   UserCredential? userCredential;
 
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   Future<void> loginGoogle() async {
@@ -37,6 +39,25 @@ class AuthController extends GetxController {
     }
   }
 
+  Future<void> registerEmail(String email, String password, String phone) async {
+    try {
+      await _auth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((value) async {
+        userCredential = value;
+        isLogin.value = true;
+        Get.offAllNamed(Routes.MAIN_WRAPPER);
+
+        await firestore.collection("users").doc(value.user!.uid).set({
+          "uid": value.user!.uid,
+          "name": value.user!.displayName,
+          "photoUrl": value.user!.photoURL,
+          "email" : value.user!.email,
+        });
+      });
+    } catch (e) {}
+  }
+
   Future<void> registerGoogle() async {
     try {
       await _googleSignIn.signIn().then((value) => _currentUser = value);
@@ -49,20 +70,18 @@ class AuthController extends GetxController {
 
         await FirebaseAuth.instance
             .signInWithCredential(credential)
-            .then((value) => userCredential = value);
+            .then((value) async {
+          isLogin.value = true;
+          userCredential = value;
+          Get.offAllNamed(Routes.MAIN_WRAPPER);
 
-        isLogin.value = true;
-
-        CollectionReference users = firestore.collection("users");
-        
-        await users.doc(_currentUser!.id).set({
-          "uid": _currentUser!.id,
-          "name": _currentUser!.displayName,
-          "email": _currentUser!.email,
-          "photo": _currentUser!.photoUrl,
+          await firestore.collection("users").doc(value.user!.uid).set({
+            "uid": value.user!.uid,
+            "name": value.user!.displayName,
+            "email" : value.user!.email,
+            "photoUrl": value.user!.photoURL
+          });
         });
-
-        Get.offAllNamed(Routes.MAIN_WRAPPER);
       }
     } catch (e) {
       print(e);
@@ -71,11 +90,19 @@ class AuthController extends GetxController {
 
   Future<void> logout() async {
     try {
+      if (_auth.currentUser != null) {
+      // If the user is authenticated with email/password
+      await _auth.signOut();
+    }
+
+    if (_googleSignIn.currentUser != null) {
+      // If the user is authenticated with Google Sign-In
       await _googleSignIn.disconnect();
-      await _googleSignIn.signOut().then((value) {
-        Get.offAllNamed(Routes.LOGIN);
-        isLogin.value = false;
-      });
+      await _googleSignIn.signOut();
+    }
+
+    Get.offAllNamed(Routes.LOGIN);
+    isLogin.value = false;
     } catch (e) {}
   }
 }

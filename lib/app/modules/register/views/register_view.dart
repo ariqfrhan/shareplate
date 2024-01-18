@@ -12,6 +12,7 @@ class RegisterView extends GetView<RegisterController> {
   RegisterView({Key? key}) : super(key: key);
 
   final authC = Get.find<AuthController>();
+  final RegisterController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +103,25 @@ class RegisterView extends GetView<RegisterController> {
               height: 25,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                if (
+                  controller.fullnameC.text.isNotEmpty &&
+                  controller.phoneC.text.isNotEmpty &&
+                  controller.emailC.text.isNotEmpty &&
+                  controller.passwordC.text.isNotEmpty &&
+                  controller.repasswordC.text.isNotEmpty &&
+                  controller.passwordC.text == controller.repasswordC.text
+                ) {
+                  authC.registerEmail(
+                    controller.emailC.text,
+                    controller.passwordC.text,
+                    controller.phoneC.text,
+                  );
+                } else {
+                  // Display an error message or handle invalid input
+                  Get.snackbar('Failed to Register', "Wrong input or password mismatch");
+                }
+              },
               child: const Center(
                 child: Text(
                   'Register',
