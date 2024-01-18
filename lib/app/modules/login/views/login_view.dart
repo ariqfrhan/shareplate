@@ -10,6 +10,7 @@ import '../controllers/login_controller.dart';
 class LoginView extends GetView<LoginController> {
   LoginView({Key? key}) : super(key: key);
   final authC = Get.find<AuthController>();
+  final LoginController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +47,7 @@ class LoginView extends GetView<LoginController> {
               child: ListView(
                 children: [
                   TextField(
+                    controller: controller.emailC,
                     decoration: InputDecoration(
                       labelText: 'Email',
                       fillColor: Colors.white,
@@ -56,6 +58,8 @@ class LoginView extends GetView<LoginController> {
                     height: 15,
                   ),
                   TextField(
+                    obscureText: true,
+                    controller: controller.passwordC,
                     decoration: InputDecoration(
                       labelText: 'Password',
                       fillColor: Colors.white,
@@ -74,7 +78,13 @@ class LoginView extends GetView<LoginController> {
                     height: 10,
                   ),
                   ElevatedButton(
-                    onPressed: () => Get.offAllNamed(Routes.MAIN_WRAPPER),
+                    onPressed: () {
+                      if (controller.emailC.text.isNotEmpty || controller.passwordC.text.isNotEmpty) {
+                        authC.loginEmail(controller.emailC.text, controller.passwordC.text);
+                      }else{
+                        Get.snackbar('Fill the blank', 'You must fill all field');
+                      }
+                    },
                     child: const Center(
                       child: Text(
                         'Sign In',

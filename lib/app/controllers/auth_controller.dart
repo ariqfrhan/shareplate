@@ -39,7 +39,32 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> registerEmail(String email, String password, String phone) async {
+  Future<void> loginEmail(String email, String password) async {
+    try {
+      await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((value) async {
+        Get.offAllNamed(Routes.MAIN_WRAPPER);
+      });
+    } catch (e) {
+      if (e is FirebaseAuthException) {
+        // Handle specific error codes
+        if (e.code == 'wrong-password') {
+          // Display Snackbar for incorrect password
+          Get.snackbar('Login Failed', 'Incorrect email or password');
+        } else {
+          // Display Snackbar for other authentication errors
+          Get.snackbar('Login Failed', 'An error occurred during login');
+        }
+      } else {
+        // Display Snackbar for general errors
+        Get.snackbar('Login Failed', 'An error occurred during login');
+      }
+    }
+  }
+
+  Future<void> registerEmail(
+      String email, String password, String phone) async {
     try {
       await _auth
           .createUserWithEmailAndPassword(email: email, password: password)
@@ -52,7 +77,7 @@ class AuthController extends GetxController {
           "uid": value.user!.uid,
           "name": value.user!.displayName,
           "photoUrl": value.user!.photoURL,
-          "email" : value.user!.email,
+          "email": value.user!.email,
         });
       });
     } catch (e) {}
@@ -78,7 +103,7 @@ class AuthController extends GetxController {
           await firestore.collection("users").doc(value.user!.uid).set({
             "uid": value.user!.uid,
             "name": value.user!.displayName,
-            "email" : value.user!.email,
+            "email": value.user!.email,
             "photoUrl": value.user!.photoURL
           });
         });
@@ -91,18 +116,18 @@ class AuthController extends GetxController {
   Future<void> logout() async {
     try {
       if (_auth.currentUser != null) {
-      // If the user is authenticated with email/password
-      await _auth.signOut();
-    }
+        // If the user is authenticated with email/password
+        await _auth.signOut();
+      }
 
-    if (_googleSignIn.currentUser != null) {
-      // If the user is authenticated with Google Sign-In
-      await _googleSignIn.disconnect();
-      await _googleSignIn.signOut();
-    }
+      if (_googleSignIn.currentUser != null) {
+        // If the user is authenticated with Google Sign-In
+        await _googleSignIn.disconnect();
+        await _googleSignIn.signOut();
+      }
 
-    Get.offAllNamed(Routes.LOGIN);
-    isLogin.value = false;
+      Get.offAllNamed(Routes.LOGIN);
+      isLogin.value = false;
     } catch (e) {}
   }
 }
