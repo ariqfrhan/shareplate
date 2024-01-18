@@ -1,0 +1,10 @@
+{
+    "id" : "",
+    "name" : "Mie ayam",
+    "description" : "ayam mi",
+    "category" : "makanan",
+    "sellerId" : 1,
+    "amount" : 15,
+    "longitude" : 48.543,
+    "latitude" : 2.2956
+}
